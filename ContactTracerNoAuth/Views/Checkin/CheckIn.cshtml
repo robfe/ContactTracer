@@ -1,0 +1,33 @@
+@model CheckinModel
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Check in to " + ViewBag.VenueName;
+}
+
+<h2>Check in to @ViewBag.VenueName</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.Name)
+        @Html.TextBoxFor(x => x.Name, new {Class = "form-control", Placeholder = "e.g. John Smith"})
+        @Html.ValidationMessageFor(x => x.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Email)
+        @Html.TextBoxFor(x => x.Email, new {Class = "form-control", Placeholder = "e.g. johnsmith@gmail.com"})
+        @Html.ValidationMessageFor(x => x.Email)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.PhoneNumber)
+        @Html.TextBoxFor(x => x.PhoneNumber, new {Class = "form-control", Placeholder = "e.g. +64-9-886-0565"})
+        @Html.ValidationMessageFor(x => x.PhoneNumber)
+    </div>
+
+    <br/>
+    <br/>
+    <button type="submit" class="btn btn-primary btn-lg">Register</button>
+}
