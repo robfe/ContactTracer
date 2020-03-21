@@ -1,0 +1,26 @@
+@using System.Web
+@model VenueFlyerModel
+
+@{
+    ViewBag.Title = "Print Me";
+    Layout = "_BlankLayout";
+}
+
+<div class="alert alert-info d-print-none" role="alert">
+    This is your venue checkin QR code. Print this page out and stick it on the door. When attendees scan the QR code (no app needed), they will be able to check in and leave contact details
+</div>
+
+<div class="jumbotron">
+    <h1 class="display-4">Check in to @Model.DisplayName</h1>
+    <p class="lead">This will allow you to leave contact details with the venue. In the event of a confirmed Covid19 infection, it will be much easier to contact you</p>
+    <hr class="my-4">
+    <p>Privacy Information: The details you leave will not be used for marketing purposes. They will be shared with the Ministry of Health if required.</p>
+    
+</div>
+
+<div style="text-align: center;">
+    <figure class="figure">
+        <img src="http://chart.apis.google.com/chart?cht=qr&chs=500x500&chl=@(HttpUtility.UrlPathEncode(Model.QrUrl))&chld=M|0" class="figure-img img-fluid rounded">
+        <figcaption class="figure-caption ">Or enter the following web address: @Model.QrUrl</figcaption>
+    </figure>
+</div>

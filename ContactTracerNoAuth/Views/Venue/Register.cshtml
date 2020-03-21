@@ -1,0 +1,18 @@
+@model RegisterVenueModel
+
+@{
+    ViewBag.Title = "Register a new Venue";
+    Layout = "_Layout";
+}
+
+<h2>Register a new Venue</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(x => x.DisplayName)
+    @Html.TextBoxFor(x => x.DisplayName, new { Class = "form-control", Placeholder = "e.g. Central Perk"})
+    @Html.ValidationMessageFor(x => x.DisplayName)
+    <br/>
+    <br/>
+    <button type="submit" class="btn btn-primary btn-lg">Register</button>
+}

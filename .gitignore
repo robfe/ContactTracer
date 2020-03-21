@@ -3,3 +3,5 @@ obj/
 /packages/
 /.idea/.idea.ContactTracerNoAuth/.idea/contentModel.xml
 /ContactTracerNoAuth/app.db
+/ContactTracerNoAuth/app.db-shm
+/ContactTracerNoAuth/app.db-wal
