@@ -11,23 +11,46 @@
 {
     <div class="form-group">
         @Html.LabelFor(x => x.Name)
-        @Html.TextBoxFor(x => x.Name, new {Class = "form-control", Placeholder = "e.g. John Smith"})
+        @Html.TextBoxFor(x => x.Name, new {@class = "form-control", placeholder = "e.g. John Smith", autocomplete = "name"})
         @Html.ValidationMessageFor(x => x.Name)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(x => x.Email)
-        @Html.TextBoxFor(x => x.Email, new {Class = "form-control", Placeholder = "e.g. johnsmith@gmail.com"})
+        @Html.TextBoxFor(x => x.Email, new {@class = "form-control", placeholder = "e.g. johnsmith@gmail.com", autocomplete = "email"})
         @Html.ValidationMessageFor(x => x.Email)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(x => x.PhoneNumber)
-        @Html.TextBoxFor(x => x.PhoneNumber, new {Class = "form-control", Placeholder = "e.g. +64-9-886-0565"})
+        @Html.TextBoxFor(x => x.PhoneNumber, new {@class = "form-control", placeholder = "e.g. +64-9-886-0565", autocomplete = "tel"})
         @Html.ValidationMessageFor(x => x.PhoneNumber)
     </div>
 
     <br/>
     <br/>
     <button type="submit" class="btn btn-primary btn-lg">Register</button>
+}
+
+@section Scripts{
+
+    <script type="text/javascript">
+
+        // oad values from LocalStorage
+        $('input[type=text][id]').each(function(){
+            var id = $(this).attr('id');
+            var value = localStorage.getItem(id);
+        
+            $(this).val(value);
+        });
+        
+        //save values to local storage on change
+        $('form').on('change', 'input[type=text][id]', function(){    
+           var id = $(this).attr('id');
+           var value = $(this).val();
+           localStorage.setItem(id, value);
+        });
+        
+    </script>
+
 }
