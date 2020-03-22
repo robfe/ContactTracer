@@ -46,7 +46,7 @@ namespace ContactTracerNoAuth.Controllers
             {
                 DisplayName = venue.DisplayName,
                 VenueId = venue.Id,
-                QrUrl = new Uri(new Uri(Request.GetEncodedUrl()), Url.Action("CheckIn", "Checkin", new {id})).ToString()
+                QrUrl = new Uri(new Uri(Request.GetEncodedUrl()), Url.Action("CheckIn", "Checkin", new {venueId = id})).ToString()
             });
         }
     }
