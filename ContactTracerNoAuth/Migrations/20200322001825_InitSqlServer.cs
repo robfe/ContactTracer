@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ContactTracerNoAuth.Migrations
 {
-    public partial class Init : Migration
+    public partial class InitSqlServer : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,7 @@ namespace ContactTracerNoAuth.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     DisplayName = table.Column<string>(maxLength: 200, nullable: true)
                 },
                 constraints: table =>
@@ -25,7 +25,7 @@ namespace ContactTracerNoAuth.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     VenueId = table.Column<long>(nullable: false),
                     IpAddress = table.Column<string>(maxLength: 39, nullable: true),
                     UserAgent = table.Column<string>(maxLength: 1000, nullable: true),
