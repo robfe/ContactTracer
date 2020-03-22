@@ -70,15 +70,6 @@ namespace ContactTracerNoAuth
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
             
-            using (var serviceScope = app.ApplicationServices
-                .GetRequiredService<IServiceScopeFactory>()
-                .CreateScope())
-            {
-                using (var context = serviceScope.ServiceProvider.GetService<CtDbContext>())
-                {
-                    context.Database.Migrate();
-                }
-            }
         }
     }
 }
